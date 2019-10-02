@@ -3,13 +3,6 @@ using UnityEngine;
 
 public class AsyncTestController : MonoBehaviour
 {
-    private void Awake()
-    {
-        Debug.Log("About to call VoidTask()");
-        VoidTask();
-        Debug.Log("Returned from VoidTask()");
-    }
-
     private async void VoidTask()
     {
         Debug.Log("Doing a void task!");
@@ -17,10 +10,13 @@ public class AsyncTestController : MonoBehaviour
         Debug.Log("Void task resumed!");
     }
 
-    private async void Start()
+    private async UniTaskVoid Start()
     {
+        Debug.Log("About to call VoidTask()");
+        VoidTask();
+        Debug.Log("Returned from VoidTask()");
+
         LongRunningTask();
-        TimingTest();
 
         Debug.Log("AsyncTestController.Start()");
 
@@ -53,26 +49,5 @@ public class AsyncTestController : MonoBehaviour
     {
         await UniTask.Delay(3000);
         return Random.Range(0, 10);
-    }
-
-    private async void TimingTest()
-    {
-        Debug.Log($"Simulating loading an asset for the first time, frame: {Time.frameCount}");
-        var asset = await LoadAssetCached(false);
-        Debug.Log($"Got asset on frame {Time.frameCount}: {asset}");
-
-        Debug.Log($"Simulating load from cache, frame: {Time.frameCount}");
-        asset = await LoadAssetCached(true);
-        Debug.Log($"Got asset on frame {Time.frameCount}: {asset}");
-
-        async UniTask<string> LoadAssetCached(bool isCached)
-        {
-            if (!isCached)
-            {
-                await UniTask.Delay(1000);
-            }
-
-            return "I'm an asset!";
-        }
     }
 }
