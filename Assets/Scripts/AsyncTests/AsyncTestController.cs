@@ -1,5 +1,6 @@
 using UniRx.Async;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsyncTestController : MonoBehaviour
 {
