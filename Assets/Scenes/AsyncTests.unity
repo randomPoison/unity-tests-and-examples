@@ -390,4 +390,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cancelOnDestroy: 1
-  _destroyDelaySeconds: 0
+  _destroyDelaySeconds: 0.5

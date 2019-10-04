@@ -4,19 +4,8 @@ using Random = UnityEngine.Random;
 
 public class AsyncTestController : MonoBehaviour
 {
-    private async void VoidTask()
-    {
-        Debug.Log("Doing a void task!");
-        await UniTask.Delay(1000);
-        Debug.Log("Void task resumed!");
-    }
-
     private async UniTaskVoid Start()
     {
-        Debug.Log("About to call VoidTask()");
-        VoidTask();
-        Debug.Log("Returned from VoidTask()");
-
         LongRunningTask();
 
         Debug.Log("AsyncTestController.Start()");
