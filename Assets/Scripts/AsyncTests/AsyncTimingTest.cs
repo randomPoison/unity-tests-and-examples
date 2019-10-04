@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 
@@ -6,11 +7,11 @@ public class AsyncTimingTest : MonoBehaviour
 {
     private void Start()
     {
-        TestTimingAsync().Forget();
+        TestTimingAsync();
         StartCoroutine(TestTimingRoutine());
     }
 
-    private async UniTaskVoid TestTimingAsync()
+    private async void TestTimingAsync()
     {
         // Simulate initial asset load taking 1 second.
         {
@@ -66,7 +67,7 @@ public class AsyncTimingTest : MonoBehaviour
         }
     }
 
-    private async UniTask<string> SimulateLoadAssetAsync(bool isCached)
+    private async Task<string> SimulateLoadAssetAsync(bool isCached)
     {
         if (!isCached)
         {

@@ -1,42 +1,23 @@
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class AsyncTestController : MonoBehaviour
 {
-    private async UniTaskVoid Start()
+    private async void Start()
     {
-        LongRunningTask();
-
-        Debug.Log("AsyncTestController.Start()");
-
-        Debug.Log($"Destroying game object {this}");
-        Destroy(gameObject);
-
-        await UniTask.Delay(1000);
-        Debug.Log($"After delay in Start(), game object: {this}");
-    }
-
-    private async UniTask<string> StringTask()
-    {
-        Debug.Log("StringTask(), before await");
-        await UniTask.Delay(10);
-        Debug.Log("StringTask(), after await");
-        return "Did a thing!";
-    }
-
-    private async void LongRunningTask()
-    {
-        var start = Time.realtimeSinceStartup;
-        while (Time.realtimeSinceStartup - start < 100f)
+        var start = Time.time;
+        while (Time.time - start < 100f)
         {
             var randomNumber = await SlowRandom();
             Debug.Log($"Random number was {randomNumber}");
         }
     }
 
-    private async UniTask<int> SlowRandom()
+    private async Task<int> SlowRandom()
     {
+        Debug.Log("Generating a random number!");
         await UniTask.Delay(3000);
         return Random.Range(0, 10);
     }

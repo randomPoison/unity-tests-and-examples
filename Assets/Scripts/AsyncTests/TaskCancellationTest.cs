@@ -14,11 +14,11 @@ public class TaskCancellationTest : MonoBehaviour
 
     private void Start()
     {
-        TestCancellation().Forget();
+        TestCancellation();
         Destroy(gameObject, _destroyDelaySeconds);
     }
 
-    public async UniTaskVoid TestCancellation()
+    public async void TestCancellation()
     {
         Debug.Log("Going to simulate loading an asset and doing some additional work...");
 
