@@ -13,14 +13,7 @@ public class ExceptionHandlingTest : MonoBehaviour
 
         ThrowVoid();
 
-        try
-        {
-            await RawTaskThrowDeep(10);
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e);
-        }
+        await ThrowRecursive(3);
     }
 
     private async void ThrowVoid()
@@ -28,7 +21,7 @@ public class ExceptionHandlingTest : MonoBehaviour
         throw new Exception("Exception thrown from async void function");
     }
 
-    private async Task RawTaskThrowDeep(int depth)
+    private async Task ThrowRecursive(int depth)
     {
         if (depth == 0)
         {
@@ -36,7 +29,7 @@ public class ExceptionHandlingTest : MonoBehaviour
         }
         else
         {
-            await RawTaskThrowDeep(depth - 1);
+            await ThrowRecursive(depth - 1);
         }
     }
 }
