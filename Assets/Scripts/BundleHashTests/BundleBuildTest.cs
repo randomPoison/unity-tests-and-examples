@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEditor.Build.Content;
@@ -110,5 +108,26 @@ public static class BundleBuildTest
         }
 
         Debug.Log(builder);
+    }
+
+    [MenuItem("Assets/Test SBP Dry Run")]
+    public static void TestSbpDryRun()
+    {
+        foreach (var target in Targets)
+        {
+            var bundles = ContentBuildInterface.GenerateAssetBundleBuilds();
+
+            var sbpBundlePath = Path.Combine("SbpAssetBundles", target.ToString());
+            //if (!Directory.Exists(sbpBundlePath))
+            //{
+            //    Directory.CreateDirectory(sbpBundlePath);
+            //}
+
+            var sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
+                sbpBundlePath,
+                bundles,
+                BuildAssetBundleOptions.DryRunBuild,
+                target);
+        }
     }
 }
