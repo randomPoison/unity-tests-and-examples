@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEditor;
+using UnityEditor.Build.Content;
+using UnityEditor.Build.Pipeline;
 using UnityEngine;
 
 public static class BundleBuildTest
@@ -19,12 +22,6 @@ public static class BundleBuildTest
         var builder = new StringBuilder();
         builder.AppendLine($"Running with active build target: {EditorUserBuildSettings.activeBuildTarget}");
 
-        var bundlePath = Path.Combine("AssetBundles", EditorUserBuildSettings.activeBuildTarget.ToString());
-        if (Directory.Exists(bundlePath))
-        {
-            Directory.CreateDirectory(bundlePath);
-        }
-
         foreach (var target in Targets)
         {
             builder.AppendLine();
@@ -33,6 +30,17 @@ public static class BundleBuildTest
 
             var dryRunHashes = new Dictionary<string, Hash128>();
             var buildHashes = new Dictionary<string, Hash128>();
+            var sbpDryRunHashes = new Dictionary<string, Hash128>();
+            var sbpBuildHashes = new Dictionary<string, Hash128>();
+
+            // Run asset bundle builds using the built-in build pipeline.
+            // ----------------------------------------------------------
+
+            var bundlePath = Path.Combine("AssetBundles", target.ToString());
+            if (!Directory.Exists(bundlePath))
+            {
+                Directory.CreateDirectory(bundlePath);
+            }
 
             var manifest = BuildPipeline.BuildAssetBundles(
                 bundlePath,
@@ -54,26 +62,53 @@ public static class BundleBuildTest
                 buildHashes[bundleName] = manifest.GetAssetBundleHash(bundleName);
             }
 
+            // Run asset bundle builds using the Scriptable Build Pipeline.
+            // ------------------------------------------------------------
+
+            var sbpBundlePath = Path.Combine("SbpAssetBundles", target.ToString());
+            if (!Directory.Exists(sbpBundlePath))
+            {
+                Directory.CreateDirectory(sbpBundlePath);
+            }
+
+            var bundles = ContentBuildInterface.GenerateAssetBundleBuilds();
+
+            var sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
+                sbpBundlePath,
+                bundles,
+                BuildAssetBundleOptions.DryRunBuild,
+                target);
+
+            foreach (var bundleName in sbpManifest.GetAllAssetBundles())
+            {
+                sbpDryRunHashes[bundleName] = sbpManifest.GetAssetBundleHash(bundleName);
+            }
+
+            sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
+                sbpBundlePath,
+                bundles,
+                BuildAssetBundleOptions.None,
+                target);
+
+            foreach (var bundleName in sbpManifest.GetAllAssetBundles())
+            {
+                sbpBuildHashes[bundleName] = sbpManifest.GetAssetBundleHash(bundleName);
+            }
+
+            // Build the results table for the current build target.
+            // -----------------------------------------------------
+
             foreach (var bundleName in dryRunHashes.Keys)
             {
                 builder.AppendLine(
-                    $"Bundle: {bundleName}, " +
-                    $"dry run hash: {dryRunHashes[bundleName]}, " +
-                    $"build hash: {buildHashes[bundleName]}");
+                    $"Bundle: {bundleName},\t" +
+                    $"dry run hash: {dryRunHashes[bundleName]},\t" +
+                    $"build hash: {buildHashes[bundleName]},\t" +
+                    $"SBP dry run: {sbpDryRunHashes[bundleName]},\t" +
+                    $"SBP build: {sbpBuildHashes[bundleName]}");
             }
         }
 
         Debug.Log(builder);
-    }
-
-    private static BuildTargetGroup GroupForTarget(BuildTarget target)
-    {
-        switch (target)
-        {
-            case BuildTarget.StandaloneWindows: return BuildTargetGroup.Standalone;
-            case BuildTarget.Android: return BuildTargetGroup.Android;
-            case BuildTarget.iOS: return BuildTargetGroup.iOS;
-            default: throw new ArgumentException($"Unknown build target {target}");
-        }
     }
 }
