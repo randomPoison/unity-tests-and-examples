@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2883790359
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 51748742cce8b4ebd2044770fe850a60
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2164263bd948184a9373784f776f453a
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/AssetBundles/MaterialTest/SkillsAndTraits-1.png
+- Assets/AssetBundles/MaterialTest/atlas0 material.mat
+Dependencies: []

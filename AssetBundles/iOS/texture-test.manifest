@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1811245233
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5b2f9bcc2ea426ff9afcfe734fd8e21e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ec971589f571f2e7a3aa456ba02d059
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/AssetBundles/TextureTest/EmptyPrefab.prefab
+- Assets/AssetBundles/TextureTest/TestTexture001.png
+Dependencies: []

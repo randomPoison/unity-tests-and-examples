@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 2717679144
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: script-test
+      Dependencies: {}
+    Info_1:
+      Name: texture-test
+      Dependencies: {}
+    Info_2:
+      Name: material-test
+      Dependencies: {}
