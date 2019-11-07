@@ -1,0 +1,27 @@
+Running with active build target: iOS
+
+Testing bundles for target: StandaloneWindows
+-------------------------
+Bundle: material-test,	dry run hash: 89a26736d656ec94b0faf3cb0a4580ce,	build hash: 192c17e037b434968c186fbe270791bd,	SBP dry run: 67b8fbb35e53d81ad26b396035c45883,	SBP build: 67b8fbb35e53d81ad26b396035c45883
+Bundle: script-test,	dry run hash: d405c81b07a097b999388f2d73ff4d75,	build hash: d405c81b07a097b999388f2d73ff4d75,	SBP dry run: 9f7f5b6ec99b0a9d52378e57e2f231ac,	SBP build: 9f7f5b6ec99b0a9d52378e57e2f231ac
+Bundle: texture-test,	dry run hash: 1afe858185213f93040f59deb4d599c7,	build hash: 4ec00975e278ff0baa4df43e3a934992,	SBP dry run: 293f9c776eb00835474b0d816bfdcac8,	SBP build: 293f9c776eb00835474b0d816bfdcac8
+
+Testing bundles for target: Android
+-------------------------
+Bundle: material-test,	dry run hash: ad678bb32fa36b69266b4f06e280b5a0,	build hash: 51748742cce8b4ebd2044770fe850a60,	SBP dry run: e9397afc482468bb020b247f5bbe62d9,	SBP build: e9397afc482468bb020b247f5bbe62d9
+Bundle: script-test,	dry run hash: af117900481e07dd6a0cd5a1882bb23b,	build hash: af117900481e07dd6a0cd5a1882bb23b,	SBP dry run: 9f7f5b6ec99b0a9d52378e57e2f231ac,	SBP build: 9f7f5b6ec99b0a9d52378e57e2f231ac
+Bundle: texture-test,	dry run hash: 86dadfb1bc8b8e6e151cab715aed14ac,	build hash: 5b2f9bcc2ea426ff9afcfe734fd8e21e,	SBP dry run: 19ffb2bea2feca9ff0f5871d84b99573,	SBP build: 19ffb2bea2feca9ff0f5871d84b99573
+
+Running with active build target: Android
+
+Testing bundles for target: StandaloneWindows
+-------------------------
+Bundle: material-test,	dry run hash: 75af722c2a4ca05860469f485c0ca367,	build hash: 192c17e037b434968c186fbe270791bd,	SBP dry run: 67b8fbb35e53d81ad26b396035c45883,	SBP build: 67b8fbb35e53d81ad26b396035c45883
+Bundle: script-test,	dry run hash: d405c81b07a097b999388f2d73ff4d75,	build hash: d405c81b07a097b999388f2d73ff4d75,	SBP dry run: 9f7f5b6ec99b0a9d52378e57e2f231ac,	SBP build: 9f7f5b6ec99b0a9d52378e57e2f231ac
+Bundle: texture-test,	dry run hash: 37485a616c560468b03f20a5fe0610ed,	build hash: 4ec00975e278ff0baa4df43e3a934992,	SBP dry run: 293f9c776eb00835474b0d816bfdcac8,	SBP build: 293f9c776eb00835474b0d816bfdcac8
+
+Testing bundles for target: Android
+-------------------------
+Bundle: material-test,	dry run hash: ad678bb32fa36b69266b4f06e280b5a0,	build hash: 51748742cce8b4ebd2044770fe850a60,	SBP dry run: e9397afc482468bb020b247f5bbe62d9,	SBP build: e9397afc482468bb020b247f5bbe62d9
+Bundle: script-test,	dry run hash: af117900481e07dd6a0cd5a1882bb23b,	build hash: af117900481e07dd6a0cd5a1882bb23b,	SBP dry run: 9f7f5b6ec99b0a9d52378e57e2f231ac,	SBP build: 9f7f5b6ec99b0a9d52378e57e2f231ac
+Bundle: texture-test,	dry run hash: 86dadfb1bc8b8e6e151cab715aed14ac,	build hash: 5b2f9bcc2ea426ff9afcfe734fd8e21e,	SBP dry run: 19ffb2bea2feca9ff0f5871d84b99573,	SBP build: 19ffb2bea2feca9ff0f5871d84b99573

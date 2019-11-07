@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEditor;
-using UnityEditor.Build.Content;
 using UnityEditor.Build.Pipeline;
 using UnityEngine;
 
@@ -69,11 +68,8 @@ public static class BundleBuildTest
                 Directory.CreateDirectory(sbpBundlePath);
             }
 
-            var bundles = ContentBuildInterface.GenerateAssetBundleBuilds();
-
             var sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
                 sbpBundlePath,
-                bundles,
                 BuildAssetBundleOptions.DryRunBuild,
                 target);
 
@@ -84,7 +80,6 @@ public static class BundleBuildTest
 
             sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
                 sbpBundlePath,
-                bundles,
                 BuildAssetBundleOptions.None,
                 target);
 
@@ -115,17 +110,9 @@ public static class BundleBuildTest
     {
         foreach (var target in Targets)
         {
-            var bundles = ContentBuildInterface.GenerateAssetBundleBuilds();
-
             var sbpBundlePath = Path.Combine("SbpAssetBundles", target.ToString());
-            //if (!Directory.Exists(sbpBundlePath))
-            //{
-            //    Directory.CreateDirectory(sbpBundlePath);
-            //}
-
             var sbpManifest = CompatibilityBuildPipeline.BuildAssetBundles(
                 sbpBundlePath,
-                bundles,
                 BuildAssetBundleOptions.DryRunBuild,
                 target);
         }
