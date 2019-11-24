@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AssetBundleScriptTest.unity
     guid: 441df26244b52ef46ae8443b71ad662e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AsyncTests.unity
     guid: 848744097e372d44ca8843839ba8c6ca
+  - enabled: 1
+    path: Assets/Scenes/RustTest.unity
+    guid: e21987ec0cf84314684ad80ee5efc2bb
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9ee3f8a8320ab434a97802e14f02710c,
       type: 2}
