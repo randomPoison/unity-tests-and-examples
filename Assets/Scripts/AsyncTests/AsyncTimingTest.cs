@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Threading.Tasks;
-using UniRx.Async;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class AsyncTimingTest : MonoBehaviour

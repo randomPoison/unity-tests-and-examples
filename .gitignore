@@ -41,3 +41,6 @@ sysinfo.txt
 
 # VS Code
 /.vscode
+
+# Embedded Packages
+Packages/com.unity.*

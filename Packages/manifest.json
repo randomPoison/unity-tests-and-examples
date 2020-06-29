@@ -3,7 +3,7 @@
     "com.synapse-games.display-list": "https://github.com/randomPoison/display-list.git#cad9938",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.addressables": "1.10.0",
+    "com.unity.addressables": "1.7.5",
     "com.unity.assetbundlebrowser": "1.7.0",
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.rider": "1.1.4",
@@ -42,12 +42,23 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.cysharp.unitask": "2.0.23"
   },
   "lock": {
     "com.synapse-games.display-list": {
       "revision": "cad9938",
       "hash": "cad9938ddb4628a92e75ffdad0ef226108d8a223"
     }
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.cysharp.unitask",
+        "com.openupm"
+      ]
+    }
+  ]
 }

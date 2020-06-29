@@ -16,7 +16,15 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: d06077b86c69f5f45ad96fe206329a1f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 84ec24905b70c224ba2e759aba3aa672
+    m_Address: Adventurer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4343727234628468602, guid: 84ec24905b70c224ba2e759aba3aa672,
+      type: 2}
+    m_TargetAsset: {fileID: 4343727234628468602, guid: 84ec24905b70c224ba2e759aba3aa672,
+      type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 18b6095b5118b4741a2ca06c68690d4d, type: 2}
   m_SchemaSet:

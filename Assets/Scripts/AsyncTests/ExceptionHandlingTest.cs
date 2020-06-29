@@ -2,7 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
-using UniRx.Async;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class ExceptionHandlingTest : MonoBehaviour

@@ -1,5 +1,5 @@
 using System.Threading;
-using UniRx.Async;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class TaskCancellationTest : MonoBehaviour
@@ -32,7 +32,7 @@ public class TaskCancellationTest : MonoBehaviour
         // async operations.
         _prefab = (GameObject)await Resources
             .LoadAsync<GameObject>("SomeAsset")
-            .ConfigureAwait(cancellation: cancellation.Token);
+            .WithCancellation(cancellation.Token);
         Debug.Log($"Finished waiting for Resources.Load(): {_prefab}");
 
         // Simulate waiting for another async operation.
