@@ -17,12 +17,12 @@ public class SpriteAtlasTest : MonoBehaviour
             };
         }
 
-        {
-            var request = Addressables.LoadAssetAsync<Sprite>("adventurer-attack1-00");
-            request.Completed += handle =>
-            {
-                _displayByCoolness.sprite = handle.Result;
-            };
-        }
+        //{
+        //    var request = Addressables.LoadAssetAsync<Sprite>("adventurer-attack1-00");
+        //    request.Completed += handle =>
+        //    {
+        //        _displayByCoolness.sprite = handle.Result;
+        //    };
+        //}
     }
 }
